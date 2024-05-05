@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import BotCard from "./BotCard";
 
-function BotCollection({ addToArmy, onDelete }) {
+function BotCollection({ addToArmy }) {
   // Your code here
+  // fetches bots from api
     const [bots, setBots] = useState([]);
   useEffect(() => {
     fetch(" http://localhost:8002/bots")
@@ -14,9 +15,9 @@ function BotCollection({ addToArmy, onDelete }) {
     <div className="ui four column grid">
       <div className="row">
         {/*...and here..*/}
-        Collection of all bots
+        {/* Collection of all bots */}
         {bots.map((bot) => (
-          <BotCard onDelete={()=> onDelete(bot.id)}  key={bot.id} bot={bot} action={addToArmy} />
+          <BotCard key={bot.id} bot={bot} action={addToArmy} />
         ))}
       </div>
     </div>

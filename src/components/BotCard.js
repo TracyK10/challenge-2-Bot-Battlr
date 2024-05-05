@@ -9,8 +9,6 @@ const botTypeClasses = {
   Captain: "icon star",
 };
 
-
-
 function BotCard({ bot, action, onDelete }) {
   function handleClick() {
   action(bot)
@@ -20,7 +18,7 @@ function BotCard({ bot, action, onDelete }) {
       <div
         className="ui card"
         key={bot.id}
-        onClick={handleClick}
+        onClick={handleClick} //adds or removes bots from army
       >
         <div className="image">
           <img alt="oh no!" src={bot.avatar_url} />
@@ -52,7 +50,7 @@ function BotCard({ bot, action, onDelete }) {
             <div className="ui center aligned segment basic">
               <button
                 className="ui mini red button"
-                onClick={()=> onDelete(bot.id)}
+                onClick={()=> onDelete(bot.id)} // deletes bots from backend
               >
                 x
               </button>
